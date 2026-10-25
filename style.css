@@ -74,7 +74,7 @@ html.has-cursor, html.has-cursor a, html.has-cursor .pill { cursor: none; }
   pointer-events: none;
 }
 .wave path {
-  fill: none; stroke: var(--lilac); stroke-width: 2.4; stroke-linecap: round;
+  fill: none; stroke: var(--tomato); stroke-width: 2.4; stroke-linecap: round;
   stroke-dasharray: 1; stroke-dashoffset: 1;
   animation: draw 1s ease 0.3s forwards;
 }
@@ -107,14 +107,9 @@ html.live .dot { opacity: 0; }
   position: relative; margin: 0; overflow: hidden;
   aspect-ratio: 4 / 5;
   border-radius: 28px;
-  background: var(--lilac);
   display: flex; align-items: center; justify-content: center; text-align: center;
 }
-.photo::before {
-  content: "Your photo\A goes here";
-  white-space: pre; font-family: var(--display); font-weight: var(--dw); font-size: 1.1rem; line-height: 1.2;
-  color: var(--dark); letter-spacing: var(--dls);
-}
+
 .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 
 /* section headings */
