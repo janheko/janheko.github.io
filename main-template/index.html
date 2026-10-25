@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title> Your-name | Developer &amp;</title>
+  <meta name="description" content=" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Fraunces:opsz,wght@9..144,700&family=Syne:wght@800&family=Space+Grotesk:wght@700&family=Instrument+Serif&family=Unbounded:wght@700&family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&family=Inter:wght@400;500;600&family=Libre+Bodoni:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+:root {
+  --bg: #eef1ff;
+  --text: #14110f;
+  --muted: #55587a;
+  --line: #c9d0f0;
+  --dark: #14110f;
+  --tomato: #ff5a36;
+  --cobalt: #3d5afe;
+  --mint: #34d399;
+  --pink: #ff8fc7;
+  --lilac: #c3a6ff;
+  --dw: 800;
+  --dls: -0.035em;
+  --dscale: 1;
+  --display: "Bricolage Grotesque", system-ui, sans-serif;
+  --body: "DM Sans", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+a { color: inherit; }
+::selection { background: var(--pink); color: var(--dark); }
+
+.wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+/* the dot is the cursor (only when JS is running on a mouse device) */
+html.has-cursor, html.has-cursor a, html.has-cursor .pill { cursor: none; }
+.cursor {
+  position: fixed; left: 0; top: 0; z-index: 9999;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--tomato);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform, width, height;
+}
+
+/* top bar */
+.top { padding: 28px 0; }
+.top .wrap { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-family: var(--display); font-weight: var(--dw); font-size: 1.3rem; text-decoration: none; }
+.top nav { display: flex; gap: 22px; font-size: 0.95rem; color: var(--muted); }
+.top nav a { text-decoration: none; font-weight: 500; transition: color 0.15s; }
+.top nav a:hover { color: var(--text); }
+
+/* hero */
+.hero { padding: 56px 0 48px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center; }
+.hero h1 {
+  font-family: var(--display);
+  font-weight: var(--dw);
+  font-size: calc(clamp(2.8rem, 8vw, 5.2rem) * var(--dscale));
+  line-height: 1;
+  letter-spacing: var(--dls);
+  margin: 0 0 40px;
+}
+
+/* name underlined with a hand-drawn wave */
+.user { position: relative; display: inline-block; }
+.wave {
+  position: absolute; left: 0; bottom: -0.2em;
+  width: 100%; height: auto; display: block; overflow: visible;
+  pointer-events: none;
+}
+.wave path {
+  fill: none; stroke: var(--tomato); stroke-width: 2.4; stroke-linecap: round;
+  stroke-dasharray: 1; stroke-dashoffset: 1;
+  animation: draw 1s ease 0.3s forwards;
+}
+@keyframes draw { to { stroke-dashoffset: 0; } }
+.hero h1:hover .wave { animation: wiggle 0.6s ease; transform-origin: center; }
+@keyframes wiggle { 0%,100% { transform: scaleY(1); } 40% { transform: scaleY(1.6); } 70% { transform: scaleY(0.7); } }
+
+/* the period after the name */
+.dot {
+  display: inline-block; width: 0.17em; height: 0.17em; margin-left: 0.05em;
+  border-radius: 50%; background: var(--tomato);
+}
+html.live .dot { opacity: 0; }
+
+.hero p { font-size: 1.2rem; max-width: 520px; margin: 0 0 16px; }
+.hero p.small { color: var(--muted); font-size: 1rem; }
+.hero .links { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+.pill {
+  display: inline-block; padding: 10px 22px; border-radius: 999px;
+  border: 1.5px solid var(--text); font-weight: 600; text-decoration: none; font-size: 1rem;
+  transition: transform 0.15s, background 0.15s, color 0.15s, border-color 0.15s;
+}
+.pill:hover { transform: translateY(-2px); background: var(--pink); border-color: var(--pink); color: var(--dark); }
+.pill.solid { background: var(--text); color: var(--bg); }
+.pill.solid:hover { color: var(--dark); }
+
+/* photo spot */
+.photo {
+  position: relative; margin: 0; overflow: hidden;
+  aspect-ratio: 4 / 5;
+  border-radius: 28px;
+  background: var(--lilac);
+  display: flex; align-items: center; justify-content: center; text-align: center;
+}
+.photo::before {
+  content: "Your photo\A goes here";
+  white-space: pre; font-family: var(--display); font-weight: var(--dw); font-size: 1.4rem; line-height: 1.2;
+  color: var(--dark); letter-spacing: var(--dls);
+}
+.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+/* section headings */
+.label {
+  font-family: var(--display); font-weight: var(--dw); font-size: 1.8rem; letter-spacing: var(--dls);
+  margin: 80px 0 24px;
+}
+
+/* project cards */
+.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.card { text-decoration: none; display: block; }
+.cover {
+  position: relative; overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border-radius: 22px;
+  padding: 22px;
+  display: flex; align-items: flex-end;
+  color: var(--dark);
+  transition: transform 0.25s;
+}
+.card:hover .cover { transform: translateY(-5px); }
+.cover h3 {
+  position: relative; z-index: 2;
+  font-family: var(--display); font-weight: var(--dw); font-size: 2rem; line-height: 1.02; letter-spacing: var(--dls); margin: 0;
+}
+.card .meta { padding: 14px 4px 0; }
+.card .meta strong { display: block; font-size: 1rem; }
+.card .meta span { color: var(--muted); font-size: 0.95rem; }
+
+/* cover colors + shapes */
+.c-lilac { background: var(--lilac); }
+.c-cobalt { background: var(--cobalt); color: #fff; }
+.c-mint { background: var(--mint); }
+.c-pink { background: var(--pink); }
+
+.shape { position: absolute; transition: transform 0.4s; }
+.card:hover .shape { transform: rotate(12deg) scale(1.05); }
+
+/* Lantern */
+.s-lantern-1 { width: 46%; aspect-ratio: 1; border-radius: 50%; background: var(--tomato); top: 12%; right: 10%; }
+.s-lantern-2 { width: 16%; aspect-ratio: 1; border-radius: 50%; background: var(--bg); top: 52%; right: 44%; }
+
+/* Tenant Tales */
+.s-house-1 { width: 38%; aspect-ratio: 1; background: var(--pink); right: 14%; top: 30%; }
+.s-house-2 { width: 46%; aspect-ratio: 1.2; background: var(--tomato); right: 10%; top: 8%; clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+
+/* Root */
+.s-root-1 { width: 30%; aspect-ratio: 1; border-radius: 50%; background: var(--bg); top: 10%; right: 34%; }
+.s-root-2 { width: 20%; aspect-ratio: 1; border-radius: 50%; background: var(--lilac); top: 42%; right: 12%; }
+.s-root-3 { width: 20%; aspect-ratio: 1; border-radius: 50%; background: var(--tomato); top: 48%; right: 58%; }
+
+/* Review */
+.s-rev-1 { width: 40%; aspect-ratio: 1; border-radius: 50%; background: var(--cobalt); top: 10%; right: 28%; }
+.s-rev-2 { width: 40%; aspect-ratio: 1; border-radius: 50%; background: var(--mint); top: 22%; right: 8%; mix-blend-mode: multiply; }
+
+/* writing list */
+.list { list-style: none; padding: 0; margin: 0; border-top: 1.5px solid var(--text); }
+.list li { border-bottom: 1.5px solid var(--text); }
+.list a {
+  display: flex; justify-content: space-between; gap: 16px; padding: 18px 4px;
+  text-decoration: none; font-weight: 600; transition: padding 0.15s, background 0.15s;
+}
+.list a:hover { background: var(--pink); padding-left: 16px; }
+.list span { color: var(--muted); font-weight: 400; font-size: 0.95rem; white-space: nowrap; }
+.list a:hover span { color: var(--dark); }
+
+/* lately */
+.now { display: grid; gap: 14px; }
+.now p { margin: 0; color: var(--muted); }
+.now b { font-family: var(--display); font-weight: var(--dw); color: var(--text); }
+
+/* contact */
+.contact { padding: 24px 0 96px; }
+.contact a.big {
+  font-family: var(--display); font-weight: var(--dw); letter-spacing: var(--dls);
+  font-size: clamp(1.8rem, 6vw, 3.2rem); text-decoration: none; line-height: 1.2;
+  border-bottom: 4px solid var(--tomato);
+  transition: background 0.15s;
+}
+.contact a.big:hover { background: var(--tomato); }
+.contact .socials { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+
+footer { border-top: 1.5px solid var(--line); padding: 24px 0 40px; font-size: 0.9rem; color: var(--muted); }
+
+@media (max-width: 720px) {
+  .hero { grid-template-columns: 1fr; gap: 36px; padding-top: 32px; }
+  .photo { max-width: 320px; }
+  .grid { grid-template-columns: 1fr; }
+  .top nav { gap: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+/* font preview picker (temporary) */
+body { padding-bottom: 150px; }
+.picker {
+  position: fixed; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 9000;
+  width: min(92vw, 760px); background: #fff; color: #14110f;
+  border: 1.5px solid #14110f; border-radius: 18px; padding: 10px 14px;
+  box-shadow: 0 8px 30px rgba(20,17,15,0.18); font-family: "DM Sans", system-ui, sans-serif;
+}
+.picker .row { display: flex; align-items: center; gap: 10px; padding: 4px 0; }
+.picker .row > b { flex: 0 0 74px; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #55587a; }
+.picker .btns { display: flex; flex-wrap: wrap; gap: 6px; }
+.picker button {
+  font: inherit; font-size: 0.85rem; font-weight: 600; padding: 4px 12px; border-radius: 999px;
+  border: 1.5px solid #14110f; background: transparent; color: #14110f; cursor: pointer;
+}
+.picker button:hover { background: #ff8fc7; }
+.picker button.on { background: #14110f; color: #fff; }
+html.has-cursor .picker button { cursor: none; }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" aria-hidden="true"></div>
+
+  <header class="top">
+    <div class="wrap">
+      <a class="logo" href="#"></a>
+      <nav>
+        <a href="#work">Work</a>
+        <a href="#writing">Writing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section class="hero">
+      <div>
+        <h1>Hi, I'm <span class="user">name<svg class="wave" viewBox="0 0 124 8" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 4 q7.5 -6 15 0 t15 0 t15 0 t15 0 t15 0 t15 0 t15 0 t15 0"/></svg></span><span class="dot" aria-hidden="true"></span></h1>
+        <p>I design and build tools that make hard things feel easy to start.</p>
+        <p class="small">
+          Write your info here
+          Based in Edmonton.
+        </p>
+        <div class="links">
+          <a class="pill solid" href="#work">See my work</a>
+          <!-- TODO: add your resume PDF to the repo and keep this link -->
+          <a class="pill" href="./resume.pdf">Resume</a>
+        </div>
+      </div>
+
+      <!-- TODO: save your photo as photo.jpg next to this file. Until then the placeholder shows. -->
+      <figure class="photo">
+        <img src="./photo.jpg" alt="Photo of user" onerror="this.remove()" />
+      </figure>
+    </section>
+
+    <section id="work">
+      <h2 class="label">Selected work</h2>
+      <div class="grid">
+        <!-- TODO: make a copy of each card class to make a new project -->
+
+        <!-- TODO: replace each href with a case study page, repo, or demo -->
+        <a class="card" href="#">
+          <div class="cover c-lilac">
+            <span class="shape s-lantern-1"></span><span class="shape s-lantern-2"></span>
+            <h3>lantern</h3>
+          </div>
+          <div class="meta"><strong>Product concept · Hackathon</strong></div>
+        </a>
+
+        <a class="card" href="#">
+          <div class="cover c-mint">
+            <span class="shape s-root-1"></span><span class="shape s-root-2"></span><span class="shape s-root-3"></span>
+            <h3>Root</h3>
+          </div>
+          <div class="meta"><strong>Study tool · Concept</strong></div>
+        </a>
+
+
+      </div>
+    </section>
+
+    <section id="writing">
+      <h2 class="label">Writing</h2>
+      <ul class="list">
+        <!-- TODO: swap in your real articles, with links -->
+        <li><a href="#">Your article title here <span>The Gateway</span></a></li>
+        <li><a href="#">Another article title <span>The Gateway</span></a></li>
+        <li><a href="#">Something you wrote for fun <span>Essay</span></a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="label">Lately</h2>
+      <div class="now">
+        <p><b>Tutoring</b> CMPUT 174, 175, 201 and 272 with Ada's Team.</p>
+        <p><b>Partnering</b> Student Instructor Partnership Program.</p>
+        <p><b>Leading</b> Computing Science and Game Design camps.</p>
+        <p><b>Making</b> music, drawing, and small web projects on the side.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2 class="label">Say hi</h2>
+      <!-- TODO: put your real email here (both places) -->
+      <a class="big" href="mailto:you@example.com">you@example.com</a>
+      <div class="socials">
+        <a class="pill" href="https://github.com/yourusername">GitHub</a>
+        <a class="pill" href="https://linkedin.com/in/yourusername">LinkedIn</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="year"></span> your-name · Edmonton</div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    /* The dot after "your name" becomes the cursor: it leaves the heading when the
+       mouse moves, grows over links, and floats back home when the mouse leaves. */
+    (function () {
+      var cur = document.querySelector(".cursor");
+      var anchor = document.querySelector(".dot");
+      var fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+      if (!fine || !cur || !anchor) { if (cur) cur.remove(); return; }
+
+      var root = document.documentElement;
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            var mx = 0, my = 0, active = false, overLink = false;
+      var x = null, y = null, size = null;
+
+      function home() {
+        var r = anchor.getBoundingClientRect();
+        return { x: r.left + r.width / 2, y: r.top + r.height / 2, s: r.width };
+      }
+
+      window.addEventListener("mousemove", function (e) {
+        mx = e.clientX; my = e.clientY;
+        overLink = !!(e.target.closest && e.target.closest("a, button"));
+        if (!active) { active = true; root.classList.add("live"); }
+      });
+      root.addEventListener("mouseleave", function () { active = false; });
+
+      function tick() {
+        var h = home();
+        var tx = active ? mx : h.x;
+        var ty = active ? my : h.y;
+        var ts = active ? (overLink ? 44 : 18) : h.s;
+        if (x === null) { x = h.x; y = h.y; size = h.s; cur.style.opacity = 1; }
+        var k = active ? 0.8 : 0.14;
+        x += (tx - x) * k;
+        y += (ty - y) * k;
+        size += (ts - size) * (reduce ? 1 : 0.3);
+        cur.style.width = cur.style.height = size + "px";
+        cur.style.transform = "translate(" + (x - size / 2) + "px," + (y - size / 2) + "px)";
+        if (!active && Math.abs(tx - x) < 1 && Math.abs(ty - y) < 1) root.classList.remove("live");
+        requestAnimationFrame(tick);
+      }
+
+      root.classList.add("has-cursor");
+      tick();
+    })();
+  </script>
+  <div class="picker" aria-label="Font preview">
+    <div class="row"><b>Headline</b><div class="btns" id="dispBtns"></div></div>
+    <div class="row"><b>Body</b><div class="btns" id="bodyBtns"></div></div>
+  </div>
+
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var display = [
+        { n: "Bricolage Grotesque", f: '"Bricolage Grotesque"', w: 800, ls: "-0.035em", sc: 1 },
+        { n: "Fraunces", f: '"Fraunces"', w: 700, ls: "-0.03em", sc: 1 },
+        { n: "Syne", f: '"Syne"', w: 800, ls: "-0.03em", sc: 0.92 },
+        { n: "Space Grotesk", f: '"Space Grotesk"', w: 700, ls: "-0.04em", sc: 1 },
+        { n: "Instrument Serif", f: '"Instrument Serif"', w: 400, ls: "-0.02em", sc: 1.18 },
+        { n: "Unbounded", f: '"Unbounded"', w: 700, ls: "-0.04em", sc: 0.78 },
+        { n: "DM Serif Display", f: '"DM Serif Display"', w: 400, ls: "-0.01em", sc: 1.05 }
+      ];
+      var body = [
+        { n: "DM Sans", f: '"DM Sans"' },
+        { n: "Inter", f: '"Inter"' },
+        { n: "Libre Bodoni", f: '"Libre Bodoni"' }
+      ];
+      function build(list, host, apply) {
+        list.forEach(function (o, i) {
+          var b = document.createElement("button");
+          b.type = "button"; b.textContent = o.n;
+          if (i === 0) b.className = "on";
+          b.addEventListener("click", function () {
+            host.querySelectorAll("button").forEach(function (x) { x.classList.remove("on"); });
+            b.classList.add("on"); apply(o);
+          });
+          host.appendChild(b);
+        });
+      }
+      build(display, document.getElementById("dispBtns"), function (o) {
+        root.style.setProperty("--display", o.f + ", Georgia, serif");
+        root.style.setProperty("--dw", o.w);
+        root.style.setProperty("--dls", o.ls);
+        root.style.setProperty("--dscale", o.sc);
+      });
+      build(body, document.getElementById("bodyBtns"), function (o) {
+        root.style.setProperty("--body", o.f + ", system-ui, sans-serif");
+      });
+    })();
+  </script>
+</body>
+</html>

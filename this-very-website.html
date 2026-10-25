@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="dark" />
+<title>This Very Website | Uche</title>
+<meta name="description" content="The process of creating this personal website." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+<div class="cursor" aria-hidden="true"></div>
+
+<header class="top">
+<div class="wrap">
+<a class="logo" href="index.html">Uche</a>
+<nav>
+<a href="work.html">My Work</a>
+<a href="index.html#contact">Contact</a>
+</nav>
+</div>
+</header>
+
+<main class="wrap">
+<article>
+<section class="page-head">
+<a class="back" href="work.html">← My work</a>
+<h1 class="page-title">This Very Website<span class="dot" aria-hidden="true"></span></h1>
+<p class="lede">The site you're on right now, built with Claude and edited by hand.</p>
+</section>
+
+<div class="cover wide c-mint"><span class="shape s-root-1"></span><span class="shape s-root-2"></span><span class="shape s-root-3"></span></div>
+
+<dl class="facts">
+<div>
+<dt>Role</dt><dd>Editor and co-creator</dd>
+</div>
+<div>
+<dt>Type</dt><dd>Personal portfolio</dd>
+</div>
+<div>
+<dt>Ideas behind it</dt><dd>Shape-themed website</dd>
+</div>
+<div>
+<dt>Status</dt><dd>Partly built, continuously editing</dd>
+</div>
+</dl>
+
+<section class="prose">
+<h2>Overview</h2>
+<p>This website was built AI-assisted with Claude. Most of the process was prompt engineering: I started from an idea for a shape based template and iterated on it with Claude, keeping the full conversation history. The full code is in my personal website repository on GitHub, and the basic template I was given sits in its own repository.</p>
+<p>Once I had a good template, I used what I learned from The Odin Project over the summer (HTML, CSS and JavaScript) to write parts by hand and edit the code and stylesheet to fit my choices. Claude helped with making the template, finding 6 font options, and the cursor interactivity.</p>
+
+<h2>My first prompt</h2>
+<p>"I want to start making my personal website, but I need you to generate me a working template that I can edit: three pages for home, my work and a specific project page template. Dig into a popping writing vibe, and please give about 5 options for font ideas. I like simple and straight-to-the-point designs with random shapes and waveforms, like the written continuous w all around. I love the simplicity of personal websites. Let's start with a nice popover hover JavaScript process though."</p>
+
+<h2>How it came together</h2>
+<!-- TODO: write a short paragraph or two on how the design changed over time (colors, dark mode, fonts, the cursor dot, the wave underline) and which parts you edited by hand. Screenshots of early versions would go well here. -->
+<p class="todo">Describe how the design changed from the first template to now, and which parts you edited by hand. Add screenshots of early versions here.</p>
+
+<h2>What I learned</h2>
+<p>How JavaScript handles positioning and interactivity with math functions. I dug into how a single script can change the display fonts on screen, and how the HTML and JavaScript files work together. I also learned how to do AI-assisted coding while making my own edits, and how to host a site on GitHub Pages.</p>
+
+<h2>Links</h2>
+<!-- TODO: replace the two hrefs below with your real repository links -->
+<p><a href="https://github.com/yourusername/your-website-repo">Personal website repository</a> · <a href="https://github.com/yourusername/your-template-repo">Template repository</a></p>
+</section>
+
+<p class="next"><a class="pill" href="work.html">← Back to all work</a></p>
+</article>
+
+</main>
+
+<footer>
+<div class="wrap">© <span id="year"></span> Uchenna Ibeziako · Edmonton</div>
+</footer>
+
+<script src="./script.js" defer></script>
+</body>
+</html>
