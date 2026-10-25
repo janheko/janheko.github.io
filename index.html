@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>Uche | Designer &amp; Developer</title>
+  <meta name="description" content="Uche is a computing science student and writer in Edmonton who likes to build and design things people can use." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+  <div class="cursor" aria-hidden="true"></div>
+
+  <header class="top">
+    <div class="wrap">
+      <a class="logo" href="#">Uche</a>
+      <nav>
+        <a href="./about.html">Work</a>
+        <a href="#writing">Writing</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section class="hero">
+      <div>
+        <h1>Hi, I'm <span class="uche">Uche<svg class="wave" viewBox="0 0 124 8" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M2 4 q7.5 -6 15 0 t15 0 t15 0 t15 0 t15 0 t15 0 t15 0 t15 0"/></svg></span><span class="dot" aria-hidden="true"></span></h1>
+        <p>I love to design and build deeply experimentative tools that express creativity.</p>
+        <p class="small">
+          Second-year Computing Science student at the University of Alberta, with a Creative Writing minor.
+          Based in Edmonton.
+        </p>
+        <div class="links">
+          <a class="pill solid" href="./about.html">See my work</a>
+          <!-- TODO: add your resume PDF to the repo and keep this link -->
+          <a class="pill" href="./uche-resume.pdf">Resume</a>
+        </div>
+      </div>
+
+      <!-- TODO: save your photo as photo.jpg next to this file. Until then the placeholder shows. -->
+      <figure class="photo">
+        <img src="./photo.jpg" alt="Photo of Uche" onerror="this.remove()" />
+      </figure>
+    </section>
+
+    <section id="work">
+      <h2 class="label">Selected work</h2>
+      <div class="grid">
+
+        <!-- TODO: replace each href with a case study page, repo, or demo -->
+        <a class="card" href="#">
+          <div class="cover c-lilac">
+            <span class="shape s-lantern-1"></span><span class="shape s-lantern-2"></span>
+            <h3>Lantern AI</h3>
+          </div>
+          <div class="meta"><strong>Product concept · Hackathon</strong><span>A blueprint app that turns a beginner's idea into a buildable project.</span></div>
+        </a>
+
+        <a class="card" href="#">
+          <div class="cover c-mint">
+            <span class="shape s-root-1"></span><span class="shape s-root-2"></span><span class="shape s-root-3"></span>
+            <h3>Root</h3>
+          </div>
+          <div class="meta"><strong>Study tool · Concept</strong><span>A course concept tracker built on the Feynman technique and forgetting-curve decay.</span></div>
+        </a>
+
+        <a class="card" href="#">
+          <div class="cover c-pink">
+            <span class="shape s-rev-1"></span><span class="shape s-rev-2"></span>
+            <h3>Bias in AI Imaging</h3>
+          </div>
+          <div class="meta"><strong>Research · STEM Fellowship</strong><span>Manuscript lead on a scoping review of sex and gender bias in AI medical imaging.</span></div>
+        </a>
+
+      </div>
+    </section>
+
+    <section id="writing">
+      <h2 class="label">Writing</h2>
+      <ul class="list">
+        <!-- TODO: swap in your real Gateway articles, with links -->
+        <li><a href="https://thegatewayonline.ca/2026/10/film-review-tony/">Tony Film Review <span>The Gateway</span></a></li>
+        </ul>
+    </section>
+
+    <section>
+      <h2 class="label">Lately</h2>
+      <div class="now">
+        <p><b>Tutoring</b> CMPUT 174, 175, 201 and 272 with Ada's Team.</p>
+        <p><b>Partnering</b> with faculty on a course redesign through the Student Instructor Partnership Program.</p>
+        <p><b>Leading</b> Root AI with the UAIS Project team</p>
+        <p><b>Making</b> music, drawing, and small web projects on the side.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2 class="label">Say hi</h2>
+
+      <a class="big" href="mailto:ibeziako@ualberta.ca">me@gmail.com</a>
+      <div class="socials">
+        <a class="pill" href="https://github.com/janheko">GitHub</a>
+        <a class="pill" href="https://www.linkedin.com/in/uchenna-ibeziako">LinkedIn</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">© <span id="year"></span> Uche · Edmonton</div>
+  </footer>
+  <div class="picker" aria-label="Font preview">
+    <div class="row"><b>Headline</b><div class="btns" id="dispBtns"></div></div>
+    <div class="row"><b>Body</b><div class="btns" id="bodyBtns"></div></div>
+  </div>
+  <script src="./script.js" defer></script>
+</body>
+</html>
