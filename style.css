@@ -14,7 +14,7 @@
   --dw: 700;
   --dls: -0.04em;
   --dscale: 0.78;
-  --display: "Unbounded", system-ui, sans-serif;
+  --display: "Fraunces", Georgia, serif;
   --body: "Inter", system-ui, sans-serif;
 }
 
@@ -292,3 +292,15 @@ html.has-cursor .picker button { cursor: none; }
   .picker { width: calc(100vw - 32px); }
   .theme-toggle { bottom: 128px; }
 }
+
+/* project pictures inside the cover boxes */
+.cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.cover:has(img) h3 { color: #fff; }
+
+.cover > img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  max-width: none; object-fit: cover; display: block;
+}
+
+.cover { min-height: 0; }
